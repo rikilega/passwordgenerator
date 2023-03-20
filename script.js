@@ -17,30 +17,31 @@ function writePassword() {
   function generatePassword() {
   //click to get a password
   var passwordNeeded = confirm("Would you like a secure password?");
+  if (!passwordNeeded) {
+    return ("");
+  }
   
   //loop for length of the password
   //password length
   function getPwLength() {
-  while(true) {
-    var passwordLength = prompt("Enter your password length. It must have at least 8 and no more than 128 charcters");
-  //validate password length
-  if (passwordLength >= 8 && 128 >= passwordLength && Number.isInteger(parseInt(passwordLength))) {
-    var pwConf = confirm(`Your password length is set to ${passwordLength}.`);
-    if (!pwConf) {
-      return getPwLength()
-    } else {
-    break;
-    }
-  } else {
-  alert("Please enter a valid password length. You must use numerical characters and set the length from 8 to 128.");
-  }
-  }
-  }
-  //call getPwLength()
-  getPwLength();
-
     while(true) {
+      var passwordLength = prompt("Enter your password length. It must have at least 8 and no more than 128 charcters");
+    //validate password length
+    if (passwordLength >= 8 && 128 >= passwordLength && Number.isInteger(parseInt(passwordLength))) {
+      var pwConf = confirm(`Your password length is set to ${passwordLength}.`);
+      if (pwConf) {
+        return passwordLength;
+      } 
+    } else {
+        alert("Please enter a valid password length. You must use numerical characters and set the length from 8 to 128.");
+    }
+    } 
+    }
+    
+    var passwordLength = getPwLength()
+  
     // choose character options
+    while(true) {
     //lowercase
     var lowercase = confirm("Include lowercase letters in your password?");
     alert("OK!");
@@ -61,7 +62,7 @@ function writePassword() {
       alert("You must include at least one character type for your password")
     }
   } 
-
+  
   var chartypes = [];
 
   if (lowercase) {
@@ -101,7 +102,7 @@ function writePassword() {
     var randomindex = Math.floor(Math.random()*availchar.length);
     password += availchar.charAt(randomindex);
   }
-
+  
   return password
   
 }
