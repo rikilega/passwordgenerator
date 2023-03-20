@@ -20,26 +20,39 @@ function writePassword() {
   
   //loop for length of the password
   //password length
+  function getPwLength() {
   while(true) {
     var passwordLength = prompt("Enter your password length. It must have at least 8 and no more than 128 charcters");
   //validate password length
   if (passwordLength >= 8 && 128 >= passwordLength && Number.isInteger(parseInt(passwordLength))) {
-    confirm(`Your password length is set to ${passwordLength}.`);
+    var pwConf = confirm(`Your password length is set to ${passwordLength}.`);
+    if (!pwConf) {
+      return getPwLength()
+    } else {
     break;
-  } else if(passwordLength < 8 || passwordLength>128 || !Number.isIntegar(passwordLength)) {
+    }
+  } else {
   alert("Please enter a valid password length. You must use numerical characters and set the length from 8 to 128.");
   }
   }
+  }
+  //call getPwLength()
+  getPwLength();
+
     while(true) {
-    // choose list character options
+    // choose character options
     //lowercase
     var lowercase = confirm("Include lowercase letters in your password?");
+    alert("OK!");
     //uppercase
     var uppercase = confirm("Include uppercase letters in your password?");
+    alert("OK!");
     //numeric
     var numeric = confirm("Include numerical characters in your password?");
+    alert("OK!");
     //special
     var special = confirm("Include special characters in your password?")
+    alert("OK!");
 
     if (lowercase || uppercase || numeric || special) {
       break;
