@@ -1,10 +1,8 @@
-// Assignment code here
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-// Add event listener to generate button
+// Add event listener to generate button to initiate writePassword() when clicked
 generateBtn.addEventListener("click", writePassword);
 
 // call the generatePassword() 
@@ -31,35 +29,52 @@ function writePassword() {
       if (pwConf) {
         return passwordLength;
       } 
-    //message if validation fails and loop back to beginning of getPwLength()
+    //message if validation fails, loop back to beginning of getPwLength()
     } else {
         alert("Please enter a valid password length. You must use numerical characters and set the length from 8 to 128.");
     }
     } 
     }
+    //call getPwLength() and define var passwordLength so that the output of the it can be used when determining var password at the end of the generatePassword().
     var passwordLength = getPwLength()
 
     // choose character types
     while(true) {
     //lowercase
     var lowercase = confirm("Include lowercase letters in your password?");
-    alert("OK!");
+      if (!lowercase) {
+        alert("Lowercase characters will be excluded");
+      } else {
+        alert("Ok!")
+      }
     //uppercase
     var uppercase = confirm("Include uppercase letters in your password?");
-    alert("OK!");
+      if (!uppercase) {
+        alert("Uppercase characters will be excluded");
+      } else {
+        alert("Ok!")
+      }
     //numeric
-    var numeric = confirm("Include numerical characters in your password?");
-    alert("OK!");
+    var numeric = confirm("Include numeric characters in your password?");
+      if (!numeric) {
+        alert("Numeric characters will be excluded");
+      } else {
+        alert("Ok!")
+      }
     //special
     var special = confirm("Include special characters in your password?")
-    alert("OK!");
+      if (!special) {
+        alert ("Special characters will be excluded");
+      } else {
+        alert ("Ok!")
+      };
 
-    if (lowercase || uppercase || numeric || special) {
-      break;
-    } else if (!lowercase && !uppercase && !numeric && !special) {
-      alert("You must include at least one character type for your password")
-    }
-  } 
+      if (lowercase || uppercase || numeric || special) {
+        break;
+      } else if (!lowercase && !uppercase && !numeric && !special) {
+        alert("You must include at least one character type for your password")
+      }
+    } 
   //Create array of all chosen character types
   var chartypes = [];
   if (lowercase) {
@@ -93,15 +108,13 @@ function writePassword() {
     availchar += ",.<>?;':/\"[]{}|=-+_)(*&^%$#@!)"
   }
 
-  //take pick random characters from avail up to password length chosen
+  //pick a random character from availchar string up to passwordLength
   var password = "";
   for (var i = 0; i < (passwordLength); i++) {
     var randomindex = Math.floor(Math.random()*availchar.length);
     password += availchar.charAt(randomindex);
   }
-  
   return password
-  
 }
   
 
