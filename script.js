@@ -14,10 +14,10 @@ function writePassword() {
 
   function generatePassword() {
 //click to get a password
-  var passwordNeeded = confirm("Would you like a secure password?");
-  if (!passwordNeeded) {
-    return ("");
-  }
+    var passwordNeeded = confirm("Would you like a secure password?");
+    if (!passwordNeeded) {
+      return ("");
+    }
 //loop for length of the password
 //password length
   function getPwLength() {
@@ -30,11 +30,11 @@ function writePassword() {
         return passwordLength;
       } 
     //message if validation fails, loop back to beginning of getPwLength()
-    } else {
+      } else {
         alert("Please enter a valid password length. You must use numerical characters and set the length from 8 to 128.");
-    }
+      }
     } 
-    }
+  }
     //call getPwLength() and define var passwordLength so that the output of the it can be used when determining var password at the end of the generatePassword().
     var passwordLength = getPwLength()
 
@@ -76,44 +76,44 @@ function writePassword() {
       }
     } 
   //Create array of all chosen character types
-  var chartypes = [];
-  if (lowercase) {
-    chartypes.push("lowercase letters")
-  }
-  if (uppercase) {
-    chartypes.push("uppercase letters")
-  }if (numeric) {
-    chartypes.push("numerical characters")
-  }if (special) {
-    chartypes.push("special characters")
-  }
+    var chartypes = [];
+    if (lowercase) {
+      chartypes.push("lowercase letters")
+    }
+    if (uppercase) {
+      chartypes.push("uppercase letters")
+    } if (numeric) {
+      chartypes.push("numerical characters")
+    }if (special) {
+      chartypes.push("special characters")
+    }
 
-  //message showing what character types were chosen
-  alert("You have chosen to include the following in your password: " + chartypes.join(", "))
+    //message showing what character types were chosen
+    alert("You have chosen to include the following in your password: " + chartypes.join(", "))
   
 
-  //list of all characters included from selected character types
-  var availchar = "";
+    //list of all characters included from selected character types
+    var availchar = "";
 
-  if (lowercase) {
-    availchar += "abcdefghijklmnopqrstuvwxyz"
-  }
-  if (uppercase) {
-    availchar += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  }
-  if (numeric) {
-    availchar += "1234567890"
-  }
-  if (special) {
-    availchar += ",.<>?;':/\"[]{}|=-+_)(*&^%$#@!)"
-  }
+    if (lowercase) {
+      availchar += "abcdefghijklmnopqrstuvwxyz"
+    }
+    if (uppercase) {
+      availchar += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    }
+    if (numeric) {
+      availchar += "1234567890"
+    }
+    if (special) {
+      availchar += ",.<>?;':/\"[]{}|=-+_)(*&^%$#@!)"
+    }
 
   //pick a random character from availchar string up to passwordLength
-  var password = "";
-  for (var i = 0; i < (passwordLength); i++) {
-    var randomindex = Math.floor(Math.random()*availchar.length);
-    password += availchar.charAt(randomindex);
-  }
+    var password = "";
+    for (var i = 0; i < (passwordLength); i++) {
+      var randomindex = Math.floor(Math.random()*availchar.length);
+      password += availchar.charAt(randomindex);
+    }
   return password
 }
   
