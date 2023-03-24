@@ -6,7 +6,7 @@
 
 ## What Is This?:
 
-This project is a webpage with a password generator that can be used to generate random secure passwords using user inputs to determine the length and character types to include in the password. This to showcase my work as a programmer, and help improve my programming skills.
+This project is a webpage with a password generator that can be used to generate random secure passwords using user inputs to determine the length and character types to include in the password. This will showcase my work as a programmer in javascript, and help improve my programming skills.
 
 ## Purpose of This Work:
 
