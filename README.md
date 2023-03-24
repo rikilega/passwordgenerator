@@ -21,3 +21,5 @@ Sample webpage image-
 <img src="assets\passwordgenerator.PNG" alt="password-generator-screenshot" width="640px">
 
 Javascript code is found [here](https://github.com/rikilega/passwordgenerator/blob/main/script.js).
+HTML code is found [here](https://github.com/rikilega/passwordgenerator/blob/main/index.html).
+CSS code is found [here](https://github.com/rikilega/passwordgenerator/blob/main/style.css).
