@@ -7,7 +7,7 @@ var generateBtn = document.querySelector("#generate");
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// Write password to the #password input
+// call the generatePassword() 
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -15,32 +15,31 @@ function writePassword() {
   }
 
   function generatePassword() {
-  //click to get a password
+//click to get a password
   var passwordNeeded = confirm("Would you like a secure password?");
   if (!passwordNeeded) {
     return ("");
   }
-  
-  //loop for length of the password
-  //password length
+//loop for length of the password
+//password length
   function getPwLength() {
     while(true) {
       var passwordLength = prompt("Enter your password length. It must have at least 8 and no more than 128 charcters");
-    //validate password length
+    //validate whether password length is a number and within the right range
     if (passwordLength >= 8 && 128 >= passwordLength && Number.isInteger(parseInt(passwordLength))) {
       var pwConf = confirm(`Your password length is set to ${passwordLength}.`);
       if (pwConf) {
         return passwordLength;
       } 
+    //message if validation fails and loop back to beginning of getPwLength()
     } else {
         alert("Please enter a valid password length. You must use numerical characters and set the length from 8 to 128.");
     }
     } 
     }
-    
     var passwordLength = getPwLength()
-  
-    // choose character options
+
+    // choose character types
     while(true) {
     //lowercase
     var lowercase = confirm("Include lowercase letters in your password?");
@@ -57,14 +56,12 @@ function writePassword() {
 
     if (lowercase || uppercase || numeric || special) {
       break;
-    }
-    else if (!lowercase && !uppercase && !numeric && !special) {
+    } else if (!lowercase && !uppercase && !numeric && !special) {
       alert("You must include at least one character type for your password")
     }
   } 
-  
+  //Create array of all chosen character types
   var chartypes = [];
-
   if (lowercase) {
     chartypes.push("lowercase letters")
   }
@@ -80,7 +77,7 @@ function writePassword() {
   alert("You have chosen to include the following in your password: " + chartypes.join(", "))
   
 
-  //list of all characters included
+  //list of all characters included from selected character types
   var availchar = "";
 
   if (lowercase) {
@@ -110,10 +107,6 @@ function writePassword() {
 
   
   
-  //click to get a password
-  //var passwordNeeded = confirm("Would you like a secure password?");
-  //password length
-  //var passwordLength = prompt("Enter your password length. It must have at least 8 and no more than 128 charcters");
 
 
 
