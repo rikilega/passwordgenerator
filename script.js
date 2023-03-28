@@ -22,7 +22,7 @@ function writePassword() {
 //password length
   function getPwLength() {
     while(true) {
-      var passwordLength = prompt("Enter your password length. It must have at least 8 and no more than 128 charcters");
+      var passwordLength = prompt("Enter your password length. It must have at least 8 and no more than 128 characters");
     //validate whether password length is a number and within the right range
     if (passwordLength >= 8 && 128 >= passwordLength && Number.isInteger(parseInt(passwordLength))) {
       var pwConf = confirm(`Your password length is set to ${passwordLength}.`);
